@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- SEARCH BAR -->
+<!--
+    "relative" allows us to position the search and camera
+    icons inside the search bar using "absolute".
+-->
+<div class="relative">
+
+    <!--
+        Search input where the user can type their search.
+
+        type="text" → creates a text input field.
+        placeholder → displays text before the user types.
+
+        w-[350px] → makes the search bar 350px wide.
+        h-8.5 → gives the search bar its height.
+
+        rounded-full → creates the pill/oval shape.
+
+        border-1 → creates a 1px border.
+        border-[#FFC0CB]/90 → makes the border light gray with 90% opacity.
+
+        pl-12 → adds left padding so the text does not
+        overlap with the search icon.
+
+        pr-12 → adds right padding so the text does not
+        overlap with the camera icon.
+
+        text-gray-600 → makes the typed text gray.
+
+        outline-none → removes the default browser outline.
+
+        focus:border-[#A64B5D] → changes the border color
+        when the user clicks inside the search bar.
+
+        transition duration-300 → makes the border color
+        change smoothly.
+    -->
+    <input
+        type="text"
+        placeholder="Search within Shopino..."
+        class="text-center italic w-[350px] h-8.5
+               rounded-full
+               bg-[#FFF5F7]/30
+                border-[#FFC0CB]/90
+               pl-12 pr-12
+               text-white
+               outline-none
+               focus:border-[#A64B5D]
+               transition duration-300"
+    >
+
+
+
+    <!-- SEARCH ICON -->
+
+    <!--
+        fa-solid → uses the solid version of Font Awesome.
+        fa-magnifying-glass → displays the search icon.
+
+        absolute → allows us to position the icon
+        independently inside the search bar.
+
+        left-5 → moves the icon 5 units from the left.
+
+        top-1/2 → moves the icon halfway down the input.
+
+        -translate-y-1/2 → moves the icon upward by half
+        of its own height, making it vertically centered.
+
+        text-gray-400 → gives the icon a light gray color.
+    -->
+    <i class="fa-solid fa-magnifying-glass
+              absolute left-5 top-1/2
+              -translate-y-1/2
+              text-[#FFC0CB]/90">
+    </i>
+
+
+
+    <!-- CAMERA ICON -->
+
+    <!--
+        fa-solid → uses the solid version of Font Awesome.
+        fa-camera → displays the camera icon.
+
+        absolute → positions the camera inside the search bar.
+
+        right-5 → moves the icon 5 units from the right edge.
+
+        top-1/2 → moves the icon halfway down the input.
+
+        -translate-y-1/2 → vertically centers the icon.
+
+        text-gray-700 → gives the camera icon a dark gray color.
+    -->
+
+    <i class="fa-regular fa-camera
+              absolute right-5 top-1/2
+              -translate-y-1/2
+              text-[#FFC0CB]/90">
+    </i>
+
+</div>
+</body>
+</html>

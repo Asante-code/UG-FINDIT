@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c7b2e6c21c.js" crossorigin="anonymous"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#181d21] min-h-screen">
+
+    <div class="flex justify-center items-center text-center py-40">
+        <div class="border-1 border-white  rounded-md w-[320px] h-[490px]">
+
+            <div class="border-1 border-yellow-500 bg-white/10 rounded-md shadow-md shadow-black w-[280px] h-[100px]  py-3 px-3 mx-auto mt-5">
+                <p class="text-white">0</p>
+
+            </div>
+
+            <div class="flex pt-5">
+                <div class="grid grid-cols-4 gap-3 px-4">
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        C
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        +/-
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        %
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-orange-500 text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-4xl font-semibold">
+                        ÷
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        7
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        8
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        9
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-orange-500 text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-4xl font-semibold">
+                        x
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        4
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        5
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        6
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-orange-500 text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-4xl font-semibold">
+                        -
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        1
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        2
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        3
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-orange-500 text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-4xl font-semibold">
+                        +
+                    </button>
+                    <button class=" grid-cols-2 w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        0
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-xl font-semibold">
+                        .
+                    </button>
+                    <button class="w-[60px] h-[55px] bg-[#1f2937] text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-2xl font-semibold">
+                        ^
+                    </button>
+                    <button class=" font-bold w-[60px] h-[55px] bg-orange-500 text-white rounded-2xl shadow-md hover:bg-[#374151] active:bg-[#111827] flex items-center justify-center text-4xl font-semibold">
+                        =
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>

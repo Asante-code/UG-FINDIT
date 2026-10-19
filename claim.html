@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Item - UG_FINDIT</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#004b45] min-h-screen flex flex-col items-center justify-center py-12 px-4 font-['Poppins']">
+
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-slate-800">Verify Ownership</h2>
+            <p class="text-sm text-gray-500 mt-1">Answer the questions below to prove this item belongs to you.</p>
+            <p id="item-target-label" class="text-xs font-semibold text-orange-600 bg-orange-50 py-1 px-3 rounded-full inline-block mt-3"></p>
+        </div>
+
+        <form id="claim-form" onsubmit="submitClaim(event)" class="space-y-5">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                <input type="text" id="input-name" required placeholder="e.g., Kelvin Asante" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Student ID Number</label>
+                <input type="text" id="input-student-id" required placeholder="e.g., 10xxxxxx" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <!-- Security Question 1 -->
+            <div>
+                <label id="label-q1" class="block text-sm font-medium text-slate-700 mb-1"></label>
+                <input type="text" id="input-answer1" required placeholder="Type your answer here..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <!-- Security Question 2 -->
+            <div>
+                <label id="label-q2" class="block text-sm font-medium text-slate-700 mb-1"></label>
+                <input type="text" id="input-answer2" required placeholder="Type your answer here..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition text-sm cursor-pointer shadow-md">
+                Submit Claim Request
+            </button>
+        </form>
+
+        <!-- Result message area -->
+        <div id="result-message" class="hidden mt-6 text-center p-4 rounded-lg"></div>
+
+        <div class="text-center mt-6">
+            <a href="findit.html" class="text-sm font-medium text-gray-500 hover:text-slate-800 transition">← Back to Browse</a>
+        </div>
+    </div>
+
+    <script>
+        // Grab all item data from the URL query string
+        var urlParams = new URLSearchParams(window.location.search);
+        var itemTitle = urlParams.get("title") || "Lost Item";
+        var question1 = urlParams.get("q1") || "Describe the item";
+        var answer1   = urlParams.get("a1") || "";
+        var question2 = urlParams.get("q2") || "Any unique marks?";
+        var answer2   = urlParams.get("a2") || "";
+
+        // Show which item is being claimed
+        document.getElementById("item-target-label").textContent = "Claiming: " + itemTitle;
+
+        // Display the security questions as labels
+        document.getElementById("label-q1").textContent = question1;
+        document.getElementById("label-q2").textContent = question2;
+
+        function submitClaim(event) {
+            event.preventDefault();
+
+            var userAnswer1 = document.getElementById("input-answer1").value.toLowerCase().trim();
+            var userAnswer2 = document.getElementById("input-answer2").value.toLowerCase().trim();
+            var correctA1 = answer1.toLowerCase().trim();
+            var correctA2 = answer2.toLowerCase().trim();
+
+            var resultDiv = document.getElementById("result-message");
+            resultDiv.classList.remove("hidden");
+
+            // Check if both answers match
+            if (userAnswer1 === correctA1 && userAnswer2 === correctA2) {
+                resultDiv.className = "mt-6 text-center p-4 rounded-lg bg-green-50 border border-green-300";
+                resultDiv.innerHTML =
+                    '<p class="text-green-700 font-semibold text-lg">✅ Verified!</p>' +
+                    '<p class="text-green-600 text-sm mt-1">Both answers are correct. Your claim has been approved. Please contact campus security to collect your item.</p>';
+                // Hide the form after success
+                document.getElementById("claim-form").classList.add("hidden");
+            } else {
+                resultDiv.className = "mt-6 text-center p-4 rounded-lg bg-red-50 border border-red-300";
+                resultDiv.innerHTML =
+                    '<p class="text-red-700 font-semibold text-lg">❌ Verification Failed</p>' +
+                    '<p class="text-red-600 text-sm mt-1">One or both answers are incorrect. Please try again or contact campus security for help.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

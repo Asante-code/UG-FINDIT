@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Item - UG_FINDIT</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#004b45] min-h-screen flex flex-col items-center justify-center py-12 px-4 font-['Poppins']">
+
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-bold text-slate-800">Report Found Item</h2>
+            <p class="text-sm text-gray-500 mt-1">Fill out the details to list it live on your site.</p>
+        </div>
+
+        <form onsubmit="submitReport(event)" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Item Title</label>
+                <input type="text" id="input-title" required placeholder="e.g., iPhone 13" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Category</label>
+                <input type="text" id="input-category" required placeholder="e.g., Electronics" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Where was it found?</label>
+                <input type="text" id="input-location" required placeholder="e.g., Balme Library" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+            </div>
+
+            <!-- Security Questions Section -->
+            <div class="border-t border-gray-200 pt-4 mt-2">
+                <p class="text-sm font-semibold text-slate-800 mb-1">Security Questions</p>
+                <p class="text-xs text-gray-400 mb-3">Set questions only the real owner can answer.</p>
+
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">Question 1</label>
+                        <input type="text" id="input-q1" required placeholder="e.g., What is the phone wallpaper?" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">Answer 1</label>
+                        <input type="text" id="input-a1" required placeholder="e.g., A sunset over the ocean" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">Question 2</label>
+                        <input type="text" id="input-q2" required placeholder="e.g., What sticker is on the back?" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">Answer 2</label>
+                        <input type="text" id="input-a2" required placeholder="e.g., A red Codetrain sticker" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg text-sm cursor-pointer">
+                Publish Item Card
+            </button>
+        </form>
+
+        <div class="text-center mt-6">
+            <a href="findit.html" class="text-sm font-medium text-gray-500 hover:text-slate-800">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        function submitReport(event) {
+            event.preventDefault();
+
+            // Get what the user typed
+            var title = document.getElementById("input-title").value;
+            var category = document.getElementById("input-category").value;
+            var location = document.getElementById("input-location").value;
+            var q1 = document.getElementById("input-q1").value;
+            var a1 = document.getElementById("input-a1").value;
+            var q2 = document.getElementById("input-q2").value;
+            var a2 = document.getElementById("input-a2").value;
+
+            // Send all values to findit.html through the URL
+            window.location.href = "findit.html?title=" + encodeURIComponent(title) +
+                                   "&category=" + encodeURIComponent(category) +
+                                   "&location=" + encodeURIComponent(location) +
+                                   "&q1=" + encodeURIComponent(q1) +
+                                   "&a1=" + encodeURIComponent(a1) +
+                                   "&q2=" + encodeURIComponent(q2) +
+                                   "&a2=" + encodeURIComponent(a2);
+        }
+    </script>
+</body>
+</html>
